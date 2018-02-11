@@ -45,6 +45,10 @@
                 </select>
             </div>
             <div class="form-group">
+                    <label for="">Giá</label>
+                    <input type="text" name="price" class="form-control" id="" placeholder="Giá" required>
+                </div>
+            <div class="form-group">
                 <label for="">Size</label>
                 <input type="text" name="size" class="form-control" id="" placeholder="Size" required>
             </div>

@@ -34,44 +34,21 @@
 					<div id="myCarousel" class="myCarousel carousel slide">
 						<div class="carousel-inner">
 							<div class="active item">
-								<ul class="thumbnails">												
+								<ul class="thumbnails">	
+									@foreach($products as $product)											
 									<li class="span3">
 										<div class="product-box">
 											<span class="sale_tag"></span>
-											<p><a href="product_detail.html"><img src="themes/images/ladies/1.jpg" alt="" /></a></p>
-											<a href="product_detail.html" class="title">Ut wisi enim ad</a><br/>
-											<a href="products.html" class="category">Commodo consequat</a>
-											<p class="price">$17.25</p>
+											<p><a href="product_detail.html"><img src="images/hinhsp/{{$product->anhsp}}" alt="" width="100px" height="100px"/></a></p>
+											<a href="product_detail.html" class="title">{{$product->tensp}}</a><br/>
+											<a href="products.html" class="category">{{$product->thongtin}}</a>
+											<p class="price">{{$product->size}}</p>
 										</div>
 									</li>
-									<li class="span3">
-										<div class="product-box">
-											<span class="sale_tag"></span>
-											<p><a href="product_detail.html"><img src="themes/images/ladies/2.jpg" alt="" /></a></p>
-											<a href="product_detail.html" class="title">Quis nostrud exerci tation</a><br/>
-											<a href="products.html" class="category">Quis nostrud</a>
-											<p class="price">$32.50</p>
-										</div>
-									</li>
-									<li class="span3">
-										<div class="product-box">
-											<p><a href="product_detail.html"><img src="themes/images/ladies/3.jpg" alt="" /></a></p>
-											<a href="product_detail.html" class="title">Know exactly turned</a><br/>
-											<a href="products.html" class="category">Quis nostrud</a>
-											<p class="price">$14.20</p>
-										</div>
-									</li>
-									<li class="span3">
-										<div class="product-box">
-											<p><a href="product_detail.html"><img src="themes/images/ladies/4.jpg" alt="" /></a></p>
-											<a href="product_detail.html" class="title">You think fast</a><br/>
-											<a href="products.html" class="category">World once</a>
-											<p class="price">$31.45</p>
-										</div>
-									</li>
+									@endforeach
 								</ul>
 							</div>
-							<div class="item">
+							{{--  <div class="item">
 								<ul class="thumbnails">
 									<li class="span3">
 										<div class="product-box">
@@ -106,7 +83,7 @@
 										</div>
 									</li>																																	
 								</ul>
-							</div>
+							</div>  --}}
 						</div>							
 					</div>
 				</div>						

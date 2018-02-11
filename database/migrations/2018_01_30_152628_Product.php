@@ -18,6 +18,7 @@ class Product extends Migration
             $table->string('masp', 100);
             $table->string('tensp')->nullable();
             $table->string('hangsx')->nullable();
+            $table->string('price')->nullable();
             $table->string('size')->nullable();
             $table->string('soluong')->nullable();
             $table->string('thongtin')->nullable();
