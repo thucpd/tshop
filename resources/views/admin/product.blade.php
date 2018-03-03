@@ -1,81 +1,69 @@
-@extends('admin/layout') @section('product')
+@extends('admin/layout2')
+@section('product')
+
 <div class="panel panel-primary">
-    <div class="panel-heading">
-        
-        <i class="fa fa-bar-chart-o fa-fw"></i>
-        <strong>
-            <b>Thêm sản phẩm </b>
-        </strong>
-
-        <div class="pull-right">
+        <div class="panel-heading">
+            
+            <i class="fa fa-bar-chart-o fa-fw"></i>
+            <strong>
+                <b>Danh sách sản phẩm </b>
+            </strong>
+    
+            <div class="pull-right">
+            </div>
+        </div>
+        <div class="panel-body">
+            {{--  @if($errors->any())
+            <div class="alert alert-danger">
+                @foreach($errors->all() as $err) {{$err}}
+                <br> @endforeach
+            </div>
+            @endif @if(Session::has('error'))
+            <div class="alert alert-danger">
+                {{Session::get('error')}}
+            </div>
+            @endif @if(Session::has('success'))
+            <div class="alert alert-success">
+                {{Session::get('success')}}
+            </div>
+            @endif  --}}
+                <table class="table table-bordered table-hover">
+                        <thead>
+                        <tr align="center" style="font-weight:bold">
+                            <td scope="col">STT</td>
+                            <td scope="col">Ảnh sản phẩm</th>
+                            <td scope="col">Mã sản phẩm</th>
+                            <td scope="col">Tên sản phẩm</th>
+                            <td scope="col">Hãng sản xuất</th>
+                            <td scope="col">Giá</th>
+                            <td scope="col">Size</th>
+                            <td scope="col">Số lượng</th>
+                            <td scope="col">Trạng thái</th>
+                            <td scope="col">Tùy chọn</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <?php $stt=1 ?>
+                            @foreach($products as $product)
+                                <tr id="sanpham-{{$product->id}}" align="center">
+                                    <td>{{$stt++}}</td>
+                                    <td><img src="/images/hinhsp/{{$product->anhsp}}" width="75px" height ="75px"></td>
+                                    <td>{{$product->masp}}</td>
+                                    <td>{{$product->tensp}}</td>
+                                    <td>{{$product->hangsx}}</td>
+                                    <td>{{$product->price}}</td>
+                                    <td>{{$product->size}}</td>
+                                    <td>{{$product->soluong}}</td>
+                                    <td>{{$product->trangthai}}</td>
+                                    <td>
+                                        <a style="padding-bottom:10px" href="{{route('editproduct',$product->id)}}"><button class="btn btn-warning btn-sm" style="width:100%;">Edit</button></a>
+                                        <br><br>
+                                        <button class="btn btn-primary btn-sm btn-call-modal" data-id="{{$product->id}}">Delete</button>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                </table>
         </div>
     </div>
-    <div class="panel-body">
-        @if($errors->any())
-        <div class="alert alert-danger">
-            @foreach($errors->all() as $err) {{$err}}
-            <br> @endforeach
-        </div>
-        @endif @if(Session::has('error'))
-        <div class="alert alert-danger">
-            {{Session::get('error')}}
-        </div>
-        @endif @if(Session::has('success'))
-        <div class="alert alert-success">
-            {{Session::get('success')}}
-        </div>
-        @endif
-        <form method="POST" action="{{route('product')}}" enctype="multipart/form-data">
-            {{csrf_field()}}
-            <div class="form-group">
-                <label for="">Tên sản phẩm</label>
-                <input type="text" name="tensp"class="form-control" id="" placeholder="Tên sản phẩm" required >
-            </div>
-            <div class="form-group">
-                <label for="">Mã sản phẩm</label>
-                <input type="text" name="masp" class="form-control" id="" placeholder="Mã sản phẩm" required>
-            </div>
-            <div class="form-group">
-                <label for="">Hãng sản xuất</label>
-                <select class="form-control" id="hangsx" name="hangsx" required>
-                    <option>Adidas</option>
-                    <option>Nike</option>
-                    <option>Biti's</option>
-                    <option>Convert</option>
-                </select>
-            </div>
-            <div class="form-group">
-                    <label for="">Giá</label>
-                    <input type="text" name="price" class="form-control" id="" placeholder="Giá" required>
-                </div>
-            <div class="form-group">
-                <label for="">Size</label>
-                <input type="text" name="size" class="form-control" id="" placeholder="Size" required>
-            </div>
-            <div class="form-group">
-                <label for="">Số lượng</label>
-                <input type="text" name="soluong" class="form-control" id="" placeholder="Số lượng" required>
-            </div>
-            <div class="form-group">
-                <label for="">Thông tin sản phẩm</label>
-                <textarea class="form-control" id="" name="thongtin" rows="3"></textarea>            
-            </div>
-            <div class="form-group">
-                <label for="">Trạng thái sản phẩm</label>
-                <select class="form-control" name="trangthai">
-                    <option>Còn hàng</option>
-                    <option>Hết hàng</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="">Ảnh sản phẩm</label>
-                <input type="file" class="form-control-file" id="" name="anhsp" required>
-            </div>
-            <div>
-            <button class="btn btn-primary">Thêm</button>
-            </div>
-        </form>
-    </div>
-
-</div>
 @endsection

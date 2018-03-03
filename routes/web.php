@@ -70,12 +70,24 @@ Route::group(['prefix' =>'admin'],function(){
         'uses'=> 'AdminController@getProduct',
         'as' =>'product'
     ]);
-    Route::post('/product',[
-        'uses'=> 'AdminController@postProduct',
-        'as' =>'product'
+    Route::get('/addproduct',[
+        'uses'=> 'AdminController@getAddProduct',
+        'as' =>'addproduct'
+    ]);
+    Route::post('/addproduct',[
+        'uses'=> 'AdminController@postAddProduct',
+        'as' =>'addproduct'
+    ]);
+    Route::get('/editproduct-{id}',[
+        'uses' => 'AdminController@getEditProduct',
+        'as' => 'editproduct'
+    ]);
+    Route::post('/editproduct-{id}',[
+        'uses' => 'AdminController@postEditProduct',
+        'as' => 'editproduct'
     ]);
     Route::get('/user', [
-        'uses'=> 'AdminController@getu\User',
+        'uses'=> 'AdminController@getUser',
         'as' =>'user'
     ]);
 }

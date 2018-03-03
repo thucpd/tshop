@@ -24,6 +24,7 @@ class Product extends Migration
             $table->string('thongtin')->nullable();
             $table->string('trangthai')->nullable();
             $table->string('anhsp')->nullable();
+            $table->string('anhphu')->nullable();
             // $table->string('status')->nullable();
             // $table->string('usertype')->nullable();
             $table->rememberToken();

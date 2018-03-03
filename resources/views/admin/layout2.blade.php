@@ -482,13 +482,10 @@
                 </div>
                 <!--end quick info section -->
             </div>
-
             <div class="row">
-                <div class="col-lg-8">
-                        @yield('addproduct')
+                <div class="col-lg-12">
                         @yield('editproduct')
-
-
+                        @yield('product')
                     <!--Area chart example -->
                     <!-- <div class="panel panel-primary">
                         <div class="panel-heading">
@@ -621,7 +618,7 @@
 
                 </div>
 
-                <div class="col-lg-4">
+                {{--  <div class="col-lg-4">
                     <div class="panel panel-primary text-center no-boder">
                         <div class="panel-body yellow">
                             <i class="fa fa-bar-chart-o fa-3x"></i>
@@ -669,7 +666,7 @@
 
 
 
-                </div>
+                </div>  --}}
 
             </div>
 
